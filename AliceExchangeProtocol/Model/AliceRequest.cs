@@ -85,15 +85,20 @@ namespace AlisaExchangeProtocol.Model
         public string user_id { get; set; }
     }
 
-    public class AliceRequest
+    public class RequestModel
     {
-        //public Meta meta { get; set; }
         public string command { get; set; }
         public string original_utterance { get; set; }
         public string type { get; set; }
         public MarkupModel markup { get; set; }
         public object payload { get; set; }
         public Nlu nlu { get; set; }
+    }
+
+    public class AliceRequest
+    {
+        //public Meta meta { get; set; }
+        public RequestModel request { get; set; }        
 
         public RequestSession session { get; set; }
         public string version { get; set; } = "1.0";

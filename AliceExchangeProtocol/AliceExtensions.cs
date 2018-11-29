@@ -5,8 +5,7 @@ using System.Text;
 
 namespace AlisaExchangeProtocol
 {
-    // Extensions.cs
-    public static class Extensions
+    public static class AliceExtensions
     {
         public static AliceResponse Reply(
           this AliceRequest req,
@@ -14,10 +13,13 @@ namespace AlisaExchangeProtocol
           bool endSession = false,
           List<ButtonModel> buttons = null) => new AliceResponse
           {
-              text = resText,
-              tts = resText,
-              buttons = buttons,
-              end_session = endSession,
+              response = new ResponseModel()
+              {
+                  text = resText,
+                  tts = resText,
+                  buttons = buttons,
+                  end_session = endSession
+              },
               session = new Session()
               {
                   message_id = req.session.message_id,

@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>428afc4a-b886-4eb1-b900-34a15f9f9c00</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,12 +12,11 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Stateless" Version="4.2.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Microsoft.AspNetCore.WebHooks.Receivers">
-      <HintPath>..\AlisaExchangeProtocol\Microsoft.AspNetCore.WebHooks.Receivers.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\AliceExchangeProtocol\AliceExchangeProtocol.csproj" />
   </ItemGroup>
 
 </Project>

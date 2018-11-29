@@ -8,7 +8,7 @@ namespace PizzaOrderService
     /// <summary>
     /// Сервис по предоставлению данных Dodo-пиццы 
     /// </summary>
-    class DodoPizzaOrderService
+    public class DodoPizzaOrderService
         : IPizzaOrderService
     {
         public Pizza[] GetAvailablePizza()

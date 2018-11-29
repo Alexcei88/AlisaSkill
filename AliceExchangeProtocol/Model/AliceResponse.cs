@@ -4,7 +4,6 @@ using System.Text;
 
 namespace AlisaExchangeProtocol.Model
 {
-
     public class ButtonModel
     {
         public string title { get; set; }
@@ -20,14 +19,18 @@ namespace AlisaExchangeProtocol.Model
         public string user_id { get; set; }
     }
 
-    public class AliceResponse
+    public class ResponseModel
     {
         public string text { get; set; }
         public string tts { get; set; }
         public List<ButtonModel> buttons { get; set; }
         public bool end_session { get; set; }
+    }
 
+    public class AliceResponse
+    {
+        public ResponseModel response { get; set; }
         public Session session { get; set; }
-        public string version { get; set; }
+        public string version { get; set; } = "1.0";
     }
 }

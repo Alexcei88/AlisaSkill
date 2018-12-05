@@ -30,16 +30,15 @@ namespace AlisaSkill.Controllers
         [HttpPost("/alice")]
         public AliceResponse WebHook([FromBody] AliceRequest req)
         {
-            var machine = GetStateMachine(req.session.session_id);
-
-            return req.Reply("Привет");
+            var machine = GetAliceStateMachine(req.session.session_id);
+            return machine.FireNext(req);
         }
         /// <summary>
         /// Вернуть State machine
         /// </summary>
         /// <param name="sessionId"></param>
         /// <returns></returns>
-        private AliceStateMachine GetStateMachine(string sessionId)
+        private AliceStateMachine GetAliceStateMachine(string sessionId)
         {
             if(_cache.TryGetValue(sessionId, out AliceStateMachine machine))
             {

@@ -1,9 +1,9 @@
-﻿using PizzaOrderService;
+﻿using AlisaExchangeProtocol.Model;
+using PizzaOrderService;
 using PizzaOrderService.Domain;
 using Stateless;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace AliceExchangeProtocol
 {
@@ -17,6 +17,8 @@ namespace AliceExchangeProtocol
 
         private StateMachine<AliceState, AliceTrigger> _stateMachine;
 
+        private AliceResponse _currentResponse;
+
         public AliceStateMachine(IPizzaOrderService pizzaService)
         {
             _pizzaService = pizzaService;
@@ -25,14 +27,33 @@ namespace AliceExchangeProtocol
             ConfigureStateMachine();
         }
 
+        public AliceResponse FireNext(AliceRequest request)
+        {
+            var trigger = _stateMachine.GetPermittedTriggers();
+            if(trigger.Any())
+            {
+                var assignTrigger = _stateMachine.SetTriggerParameters<AliceRequest>(trigger.First());
+                _stateMachine.Fire(assignTrigger, request);
+            }
+            else
+            {
+
+            }
+            return _currentResponse;
+        }
+
         private void ConfigureStateMachine()
         {
             _stateMachine = new StateMachine<AliceState, AliceTrigger>(AliceState.Open);
 
-            var assignTrigger = _stateMachine.SetTriggerParameters<string>(AliceTrigger.SelectName);
-
             _stateMachine.Configure(AliceState.Open)
+                .Permit(AliceTrigger.ShowGreeting, AliceState.WasGreeting);
+
+            var openTrigger = _stateMachine.SetTriggerParameters<AliceRequest>(AliceTrigger.ShowGreeting);
+            _stateMachine.Configure(AliceState.WasGreeting)
+                .OnE
                 .Permit(AliceTrigger.SelectName, AliceState.SelectedName);
+
 
             _stateMachine.Configure(AliceState.SelectedName)
                 .Permit(AliceTrigger.SelectSize, AliceState.SelectedSize);
@@ -63,7 +84,6 @@ namespace AliceExchangeProtocol
 
             _stateMachine.Configure(AliceState.InputedCVC)
                             .Permit(AliceTrigger.Close, AliceState.Closed);
-
         }
     }
 }

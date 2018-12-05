@@ -4,9 +4,20 @@ using System.Text;
 
 namespace AliceExchangeProtocol
 {
-    public enum AliceState { Open, SelectedName, SelectedSize, InputedFIO, InputedAddress, InputedFloorNumber, InputedPhoneNumber, InputedCreditCard, InputedCardFIO
-            , InputedCardEndDate, InputedCVC, Closed }
+    public enum AliceState
+    {
+         Open
+       , WasGreeting
+       , SelectedName, SelectedSize
+       , InputedFIO, InputedAddress, InputedFloorNumber, InputedPhoneNumber, InputedCreditCard, InputedCardFIO
+       , InputedCardEndDate, InputedCVC, Closed
+    }
 
-    public enum AliceTrigger { SelectName, SelectSize, InputFIO, InputedAddress, InputFloorNumber, InputPhoneNumber, InputCreditCard, InputCardFIO
-            , InputCardEndDate, InputCVC, Close }
+    public enum AliceTrigger
+    {
+          ShowGreeting
+        , SelectName, SelectSize, InputFIO
+        , InputedAddress, InputFloorNumber, InputPhoneNumber, InputCreditCard, InputCardFIO
+        , InputCardEndDate, InputCVC, Close
+    }
 }

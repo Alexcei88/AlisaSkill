@@ -22,7 +22,7 @@ namespace PizzaOrderService.Domain
         /// <summary>
         /// Размер 
         /// </summary>
-        public int Size { get; set; }
+        public int[] Size { get; set; }
 
         /// <summary>
         /// Цена 

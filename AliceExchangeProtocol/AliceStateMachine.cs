@@ -22,7 +22,7 @@ namespace AliceExchangeProtocol
         public AliceStateMachine(IPizzaOrderService pizzaService)
         {
             _pizzaService = pizzaService;
-            _pizzaList = new Lazy<Pizza[]>(() => _pizzaService.GetAvailablePizza());
+            _pizzaList = new Lazy<Pizza[]>(() => _pizzaService.GetAvailablePizzas());
 
             ConfigureStateMachine();
         }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PizzaOrderService
 {
@@ -11,7 +12,7 @@ namespace PizzaOrderService
         /// Список доступных пицц
         /// </summary>
         /// <returns></returns>
-        Pizza[] GetAvailablePizza();
+        Task<IEnumerable<Pizza>> GetAvailablePizzas();
 
         /// <summary>
         /// Купить пиццу

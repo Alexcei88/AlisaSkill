@@ -20,12 +20,12 @@ namespace AliceSkillService.Extensions
             services.AddTransient<IPizzaOrderService>(a =>
             {
                 Mock<IPizzaOrderService> service = new Mock<IPizzaOrderService>();
-                service.Setup(s => s.GetAvailablePizza()).Returns(new PizzaOrderService.Domain.Pizza[]
+                service.Setup(s => s.GetAvailablePizzas()).Returns(new PizzaOrderService.Domain.Pizza[]
                 {
                 new PizzaOrderService.Domain.Pizza()
                 {
                     Id = 1,
-                    IntgradientDescription = "Мясо, молоко",
+                    IngredientsDescription = "Мясо, молоко",
                     Name = "Мясная",
                     Price = 30.00m,
                     Size = new int[]{10,20,25}
@@ -33,7 +33,7 @@ namespace AliceSkillService.Extensions
                 new PizzaOrderService.Domain.Pizza()
                 {
                     Id = 2,
-                    IntgradientDescription = "Мясо, молоко",
+                    IngredientsDescription = "Мясо, молоко",
                     Name = "Молочная",
                     Price = 30.00m,
                     Size = new int[]{10,20,25}
@@ -41,7 +41,7 @@ namespace AliceSkillService.Extensions
                 new PizzaOrderService.Domain.Pizza()
                 {
                     Id = 3,
-                    IntgradientDescription = "Сыр",
+                    IngredientsDescription = "Сыр",
                     Name = "С сыром",
                     Price = 30.00m,
                     Size = new int[]{10,20,25}

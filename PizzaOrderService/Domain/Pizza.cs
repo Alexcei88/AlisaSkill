@@ -22,17 +22,19 @@ namespace PizzaOrderService.Domain
         /// <summary>
         /// Размер 
         /// </summary>
-        public int[] Size { get; set; }
+        public IEnumerable<Size> Sizes { get; set; }
+
+        public class Size
+        { 
+            public double Diameter { get; set; }
+            public string Dough { get; set; }
+            public decimal Price { get; set; }
+        }
 
         /// <summary>
-        /// Цена 
+        /// Описание ингредиентов
         /// </summary>
-        public decimal Price { get; set; }
-
-        /// <summary>
-        /// Описание интградиентов
-        /// </summary>
-        public string IntgradientDescription { get; set; }
+        public string IngredientsDescription { get; set; }
 
     }
 }

@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AliceExchangeProtocol", "Al
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AliceSkillService", "AliceSkill\AliceSkillService.csproj", "{6F37C046-2DBF-4A04-BF0A-30567066EF31}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaOrderServiceTest", "PizzaOrderServiceTest\PizzaOrderServiceTest.csproj", "{C380B4C7-AE02-41ED-930F-8B7D23F8F974}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6F37C046-2DBF-4A04-BF0A-30567066EF31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F37C046-2DBF-4A04-BF0A-30567066EF31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F37C046-2DBF-4A04-BF0A-30567066EF31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C380B4C7-AE02-41ED-930F-8B7D23F8F974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C380B4C7-AE02-41ED-930F-8B7D23F8F974}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C380B4C7-AE02-41ED-930F-8B7D23F8F974}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C380B4C7-AE02-41ED-930F-8B7D23F8F974}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
